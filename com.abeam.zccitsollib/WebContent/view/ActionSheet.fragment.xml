@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <ActionSheet
+    title="Choose Your Action"
+    showCancelButton="true"
+    placement="Top">
+    <buttons>
+      <Button text="{i18n>None}" press="disGroup"/>
+      <Button text="{i18n>Area}" press="enGroup"/>
+    </buttons>
+  </ActionSheet>
+</core:FragmentDefinition>

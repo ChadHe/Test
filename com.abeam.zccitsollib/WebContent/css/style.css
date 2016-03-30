@@ -1,0 +1,44 @@
+.spacerTop {
+    margin-top: 2rem;
+}
+.sap-tablet .sapMDialog,
+.sap-desktop .sapMDialog {
+    min-width: 18rem;
+}
+.sapMMessageDialog {
+    width: 18rem;
+}
+span {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapUiBody {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMTextLineClamp {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMOH .sapMOHAttr .sapMObjectAttributeTitle, .sapMOH .sapMOHAttr .sapMObjectAttributeText, .sapMOH .sapMOHAttr .sapMObjectAttributeColon {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMText {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMLabel {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMListTbl .sapMObjectIdentifierText .sapMText {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMSFI {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMObjLNumberStateNone {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+.sapMOHNumberDiv .sapMObjectNumberText {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+
+.sapMOH .sapMOHAttr .sapMObjectAttributeDiv {
+ max-height: none;
+}

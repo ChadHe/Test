@@ -1,0 +1,46 @@
+<mvc:View controllerName="com.abeam.zccitsollib.view.Master" xmlns:core="sap.ui.core"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="masterPage" title="{masterView>/masterTitle}">
+		<subHeader id="masterSubHeader">
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField id="searchField" placeholder="{i18n>masterSearchPlaceholder}"
+						search="onSearch" showRefreshButton="{device>/isNoTouch}" tooltip="{i18n>masterSearchTooltip}"
+						width="100%"></SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<List growing="true" growingScrollToLoad="true" 
+				growingThreshold="1000" id="list"
+				mode="{device>/listMode}" noDataText="{i18n>masterListNoDataText}"
+				items="{/SOLUTIONSet}"
+				select="onSelect"
+				updateFinished="onMasterUpdateFinished">
+				<items id="masterList">
+					<ObjectListItem counter="0" id="mainListItem"
+						markFavorite="false" markFlagged="false" press="onSelect"
+						showMarkers="false" title="{Soltx}" type="{device>/listItemType}"
+						number="{Region}">
+						<attributes>
+							<ObjectAttribute text="{Area}" />
+							<ObjectAttribute text="{Type}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer id="masterFooter">
+			<Toolbar id="masterToolbar">
+				<content>
+					<ToolbarSpacer/>
+					<Button
+						icon="sap-icon://group-2"
+						press="handleGroup">
+					</Button>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,106 @@
+<mvc:View controllerName="com.abeam.zccitsollib.view.Detail" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="detailPage" navButtonPress="onNavBack" showNavButton="{device>/isPhone}"
+		title="{i18n>detailTitle}">
+		<content>
+			<ObjectHeader iconActive="false" id="detailHeader"
+				introActive="false" title="{Soltx}" titleActive="false"
+				number="{Region}">
+				<attributes id="detailAttributes">
+					<ObjectAttribute id="hArea" text="{Area}" />
+					<ObjectAttribute id="hType" text="{Type}" />
+					<ObjectAttribute id="hText" text="{Text}" />
+				</attributes>
+			</ObjectHeader>
+			<IconTabBar expanded="false" id="idIconTabBar">
+				<items id="detailsItems">
+					<IconTabFilter icon="sap-icon://hint" id="iconTabFilter1"
+						key="selfInfo" tooltip="{i18n>iconSelfInfo}">
+						<content>
+							<f:SimpleForm columnsL="2" columnsM="2" editable="false"
+								emptySpanL="2" emptySpanM="2" id="iconTabFilter1form"
+								labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout"
+								minWidth="1024" maxContainerCols="2">
+								<f:content>
+									<core:Title id="title1" />
+									<Label id="label1" text="{i18n>Status}"></Label>
+									<Text id="text1" maxLines="0" text="{Status}"></Text>
+									<Label id="label2" text="{i18n>Priority}"></Label>
+									<Text id="text2" maxLines="0" text="{Priority}"></Text>
+									<Label id="label3" text="{i18n>Stage}"></Label>
+									<Text id="text3" maxLines="0" text="{Stage}"></Text>
+
+									<core:Title id="title2" />
+									<Label id="label4" text="{i18n>Ounit}"></Label>
+									<Text id="text4" maxLines="0" text="{Ounit}"></Text>
+									<Label id="label5" text="{i18n>Opd}"></Label>
+									<Text id="text5" maxLines="0" text="{Opd}"></Text>
+									<Label id="label6" text="{i18n>Contact}"></Label>
+									<Link id="text6" text="{Contact}" target="_blank"
+										href="{path: 'Mail', formatter: 'com.abeam.zccitsollib.util.Formatter.changeMail'}"></Link>
+								</f:content>
+							</f:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://enter-more" id="iconTabFilter2"
+						key="ownerInfo" tooltip="{i18n>iconOwnerInfo}">
+						<content>
+							<f:SimpleForm columnsL="1" editable="false"
+								emptySpanL="4" emptySpanM="4" id="iconTabFilter2form"
+								labelSpanL="2" labelSpanM="2" layout="ResponsiveGridLayout"
+								minWidth="1024">
+								<f:content>
+									<Label id="label9" text="{i18n>Eunit}"></Label>
+									<Text id="text9" maxLines="0" text="{Eunit}"></Text>
+									<Label id="label10" text="{i18n>Eperson}"></Label>
+									<Text id="text10" maxLines="0" text="{Eperson}"></Text>
+									<Label id="label11" text="{i18n>Edate}"></Label>
+									<Text id="text11" maxLines="0"
+										text="{path: 'Edate', formatter: 'com.abeam.zccitsollib.util.Formatter.changeDate'}"></Text>
+								</f:content>
+							</f:SimpleForm>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<Table id="lineItemsList" width="auto" items="{PDSRVSet}"
+				updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}"
+				class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>detailLineItemTableIDColumn}" tooltip="{i18n>detailLineItemTableIDColumntip}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>detailLineItemTableTypeColumn}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>detailLineItemTableVendorColumn}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link id="colm1" text="{Psname}" target="_blank"
+								href="{path: 'Url', formatter: 'com.abeam.zccitsollib.util.Formatter.changeWebUrl'}" tooltip="{Psname}"></Link>
+							<Text id="colm2" />
+							<Text id="colm3" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer id="detailFooter">
+			<Toolbar id="detailToolbar">
+				<content>
+					<ToolbarSpacer id="toolbarSpacer"></ToolbarSpacer>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
