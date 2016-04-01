@@ -88,8 +88,8 @@
 						<cells>
 							<Link id="colm1" text="{Psname}" target="_blank"
 								href="{path: 'Url', formatter: 'com.abeam.zccitsollib.util.Formatter.changeWebUrl'}" tooltip="{Psname}"></Link>
-							<Text id="colm2" />
-							<Text id="colm3" />
+							<Text id="colm2" text="{Type}"/>
+							<Text id="colm3" text="{Vendor}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
