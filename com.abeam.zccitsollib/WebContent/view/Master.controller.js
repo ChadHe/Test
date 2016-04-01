@@ -144,7 +144,7 @@ sap.ui.core.mvc.Controller.extend("com.abeam.zccitsollib.view.Master", {
 		var filters = [];
 		var searchString = this.getView().byId("searchField").getValue();
 		if (searchString && searchString.length > 0) {
-			filters = [new sap.ui.model.Filter("Statx", sap.ui.model.FilterOperator.Contains, searchString)];
+			filters = [new sap.ui.model.Filter("Soltx", sap.ui.model.FilterOperator.Contains, searchString)];
 		}
 		// Update list binding
 		this.getView().byId("list").getBinding("items").filter(filters);
