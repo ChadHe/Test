@@ -1,0 +1,8 @@
+{ "application" : "hcm.mytimesheet",
+  "version" : "1.7.24",
+  "buildNumber" : "60",
+  "buildId" : "2015-09-29_14-06-23",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}
