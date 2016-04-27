@@ -12,7 +12,7 @@ sap.ca.scfld.md.ConfigurationBase.extend("hcm.mytimesheet.Configuration", {
 			{
 			    name: "HCM_TIMESHEET_MAN_SRV",
                 masterCollection: "Favorites",
-                serviceUrl: "/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/",
+                serviceUrl: "proxy/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/",
                 isDefault: true,
                 mockedDataSource: "/hcm.emp.mytimesheet/model/metadata.xml"}
 		]
