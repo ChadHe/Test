@@ -11,11 +11,21 @@ sap.ui.component.load({
 this.hcm.mytimesheet.Component.extend("hcm.mytimesheet.yyhcm_tsh_man.Component", {
 	metadata: {
 		version: "1.0",
-		config: {},
+		config: {
+			"sap.ca.i18Nconfigs": {
+				"bundleName": "hcm.mytimesheet.yyhcm_tsh_man.i18n.i18n"
+			}
+		},
 		customizing: {
 			"sap.ui.controllerExtensions": {
 				"hcm.mytimesheet.view.S3": {
 					"controllerName": "hcm.mytimesheet.yyhcm_tsh_man.view.S3Custom"
+				}
+			},
+			"sap.ui.viewReplacements": {
+				"hcm.mytimesheet.view.S31": {
+					"viewName": "hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom",
+					"type": "XML"
 				}
 			}
 		}
