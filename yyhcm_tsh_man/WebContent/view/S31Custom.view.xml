@@ -152,6 +152,7 @@
 											</sap.ui.layout.form:label>
 											<sap.ui.layout.form:fields>
 												<Input
+														id="OTREASON"
 														value="{path: 'WTAssign>OTReason',
 																mode: 'TwoWay'}"
 														width="100px"

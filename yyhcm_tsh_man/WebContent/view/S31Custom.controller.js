@@ -28,8 +28,38 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 						+ '-'
 						+ dSelectedDate.getDate()
 						+ 'T00:00:00';
-		var sDatePath = "WTAssign>/WorktimeAssignSet(datetime'" + sDateString + "')";
+		var sDatePath = "/WorktimeAssignSet(datetime'" + sDateString + "')";
 		
-		oService.update(sDatePath,this.getView().getModel("WTAssign").oData);
+		oService.update(sDatePath,{
+			RangeStart: "PT" +
+						this.getView().byId("TR_TP1").getDateValue().getHours() +
+						"H" +
+						this.getView().byId("TR_TP1").getDateValue().getMinutes() +
+						"M" +
+						this.getView().byId("TR_TP1").getDateValue().getSeconds() +
+						"S",
+			RangeEnd:   "PT" +
+						this.getView().byId("TR_TP2").getDateValue().getHours() +
+						"H" +
+						this.getView().byId("TR_TP2").getDateValue().getMinutes() +
+						"M" +
+						this.getView().byId("TR_TP2").getDateValue().getSeconds() +
+						"S",
+			Rest1Start: "PT" +
+						this.getView().byId("REST1_TP1").getDateValue().getHours() +
+						"H" +
+						this.getView().byId("REST1_TP1").getDateValue().getMinutes() +
+						"M" +
+						this.getView().byId("REST1_TP1").getDateValue().getSeconds() +
+						"S",
+			Rest1End:   "PT" +
+						this.getView().byId("REST1_TP2").getDateValue().getHours() +
+						"H" +
+						this.getView().byId("REST1_TP2").getDateValue().getMinutes() +
+						"M" +
+						this.getView().byId("REST1_TP2").getDateValue().getSeconds() +
+						"S",
+			OTReason: this.getView().byId("OTREASON").getValue()
+		},null,null);
 	}
 });
