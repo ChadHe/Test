@@ -92,13 +92,15 @@
 											<sap.ui.layout.form:fields>
 												<TimePicker
 														id="TR_TP1"
-														value="{WTAssign>RangeStart}"
+														value="{path: 'WTAssign>RangeStart',
+																mode: 'TwoWay'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
 												<TimePicker
 														id="TR_TP2"
-														value="{WTAssign>RangeEnd}"
+														value="{path: 'WTAssign>RangeEnd',
+																mode: 'TwoWay'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 											</sap.ui.layout.form:fields>
@@ -118,13 +120,15 @@
 											<sap.ui.layout.form:fields>
 												<TimePicker
 														id="REST1_TP1"
-														value="{WTAssign>Rest1Start}"
+														value="{path: 'WTAssign>Rest1Start',
+																mode: 'TwoWay'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
 												<TimePicker
 														id="REST1_TP2"
-														value="{WTAssign>Rest1End}"
+														value="{path: 'WTAssign>Rest1End',
+																mode: 'TwoWay'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
@@ -148,7 +152,8 @@
 											</sap.ui.layout.form:label>
 											<sap.ui.layout.form:fields>
 												<Input
-														value="{WTAssign>OTReason}"
+														value="{path: 'WTAssign>OTReason',
+																mode: 'TwoWay'}"
 														width="100px"
 														fieldWidth="60%"/>
 											</sap.ui.layout.form:fields>
