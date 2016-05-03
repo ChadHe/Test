@@ -20,6 +20,10 @@ this.hcm.mytimesheet.Component.extend("hcm.mytimesheet.yyhcm_tsh_man.Component",
 			"sap.ui.controllerExtensions": {
 				"hcm.mytimesheet.view.S3": {
 					"controllerName": "hcm.mytimesheet.yyhcm_tsh_man.view.S3Custom"
+				},
+				
+				"hcm.mytimesheet.view.S31": {
+					"controllerName": "hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom"
 				}
 			},
 			"sap.ui.viewReplacements": {
