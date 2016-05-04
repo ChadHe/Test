@@ -93,14 +93,14 @@
 												<TimePicker
 														id="TR_TP1"
 														value="{path: 'WTAssign>RangeStart',
-																mode: 'TwoWay'}"
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
 												<TimePicker
 														id="TR_TP2"
 														value="{path: 'WTAssign>RangeEnd',
-																mode: 'TwoWay'}"
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 											</sap.ui.layout.form:fields>
@@ -121,19 +121,88 @@
 												<TimePicker
 														id="REST1_TP1"
 														value="{path: 'WTAssign>Rest1Start',
-																mode: 'TwoWay'}"
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
 												<TimePicker
 														id="REST1_TP2"
 														value="{path: 'WTAssign>Rest1End',
-																mode: 'TwoWay'}"
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
 														valueFormat="HH:mm"
 														displayFormat="HH:mm"/>
 														
 												<Input
-														value="1"
+														id="REST1_TL"
+														value="{path: 'WTAssign>Rest1Total'}"
+														width="100px"
+														fieldWidth="60%"/>
+											</sap.ui.layout.form:fields>
+										</sap.ui.layout.form:FormElement>
+										
+										<sap.ui.layout.form:FormElement>
+											<sap.ui.layout.form:layoutData>
+												<sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+											</sap.ui.layout.form:layoutData>
+											<sap.ui.layout.form:label>
+												<Label class="sapUiSmallMarginTop" text="{i18n>REST2}">
+													<layoutData>
+														<sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</sap.ui.layout.form:label>
+											<sap.ui.layout.form:fields>
+												<TimePicker
+														id="REST2_TP1"
+														value="{path: 'WTAssign>Rest2Start',
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
+														valueFormat="HH:mm"
+														displayFormat="HH:mm"/>
+														
+												<TimePicker
+														id="REST2_TP2"
+														value="{path: 'WTAssign>Rest2End',
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
+														valueFormat="HH:mm"
+														displayFormat="HH:mm"/>
+														
+												<Input
+														id="REST2_TL"
+														value="{path: 'WTAssign>Rest2Total'}"
+														width="100px"
+														fieldWidth="60%"/>
+											</sap.ui.layout.form:fields>
+										</sap.ui.layout.form:FormElement>
+										
+										<sap.ui.layout.form:FormElement>
+											<sap.ui.layout.form:layoutData>
+												<sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+											</sap.ui.layout.form:layoutData>
+											<sap.ui.layout.form:label>
+												<Label class="sapUiSmallMarginTop" text="{i18n>REST3}">
+													<layoutData>
+														<sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</sap.ui.layout.form:label>
+											<sap.ui.layout.form:fields>
+												<TimePicker
+														id="REST3_TP1"
+														value="{path: 'WTAssign>Rest3Start',
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
+														valueFormat="HH:mm"
+														displayFormat="HH:mm"/>
+														
+												<TimePicker
+														id="REST3_TP2"
+														value="{path: 'WTAssign>Rest3End',
+																formatter: 'hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter.changeTime'}"
+														valueFormat="HH:mm"
+														displayFormat="HH:mm"/>
+														
+												<Input
+														id="REST3_TL"
+														value="{path: 'WTAssign>Rest3Total'}"
 														width="100px"
 														fieldWidth="60%"/>
 											</sap.ui.layout.form:fields>
@@ -153,8 +222,7 @@
 											<sap.ui.layout.form:fields>
 												<Input
 														id="OTREASON"
-														value="{path: 'WTAssign>OTReason',
-																mode: 'TwoWay'}"
+														value="{path: 'WTAssign>OTReason'}"
 														width="100px"
 														fieldWidth="60%"/>
 											</sap.ui.layout.form:fields>
@@ -162,8 +230,6 @@
 									</sap.ui.layout.form:FormContainer>
 								</sap.ui.layout.form:formContainers>
 							</sap.ui.layout.form:Form>
-							<Button text="Save" press="saveWorkAssign">
-							</Button>
 						</content>
 					</Panel>
 					<!-- ADD END   CHAHE 2016/04/28-->
