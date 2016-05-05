@@ -227,6 +227,27 @@
 														fieldWidth="60%"/>
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>
+										
+										
+										<sap.ui.layout.form:FormElement>
+											<sap.ui.layout.form:layoutData>
+												<sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+											</sap.ui.layout.form:layoutData>
+											<sap.ui.layout.form:label>
+												<Label class="sapUiSmallMarginTop" text="{i18n>LANGUAGE}">
+													<layoutData>
+														<sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</sap.ui.layout.form:label>
+											<sap.ui.layout.form:fields>
+													<Select>
+														<sap.ui.core:Item key="EN" text="English" />
+														<sap.ui.core:Item key="JP" text="日本語" />
+														<sap.ui.core:Item key="ZH" text="中文" />
+													</Select>
+											</sap.ui.layout.form:fields>
+										</sap.ui.layout.form:FormElement>
 									</sap.ui.layout.form:FormContainer>
 								</sap.ui.layout.form:formContainers>
 							</sap.ui.layout.form:Form>
@@ -259,8 +280,11 @@
 												</Label>
 											</sap.ui.layout.form:label>
 											<sap.ui.layout.form:fields>
+												<!-- MOD Start CHAHE 2016/04/28-->
+												<!-- liveChange=>change -->
+												<!-- MOD END   CHAHE 2016/04/28-->
 												<Input showValueHelp="{accountingInfoModel>valueHelp}" name="{accountingInfoModel>fieldName}"
-													valueStateText="{accountingInfoModel>valueStateText}" valueHelpRequest="onInputHelp" liveChange='manualHelpChange'
+													valueStateText="{accountingInfoModel>valueStateText}" valueHelpRequest="onInputHelp" change='manualHelpChange'
 													suggestionItemSelected='onManualItemSelection' value="{accountingInfoModel>value}" enabled="{accountingInfoModel>ReadOnly}"></Input>
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>

@@ -7,20 +7,13 @@ jQuery.sap.require("sap.m.MessageBox");
 jQuery.sap.require("hcm.mytimesheet.yyhcm_tsh_man.utils.Formatter");
 sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 	onInit: function(){
-		var oODataModel = new sap.ui.model.odata.ODataModel("proxy/sap/opu/odata/sap/YYCATS_SRV/");
+		var oODataModel = new sap.ui.model.odata.ODataModel("proxy/sap/opu/odata/sap/yycats_srv/");
 		this.getView().setModel(oODataModel,"WTAssign");
 		this.getView().getModel("WTAssign").setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 
 		var self = this;
 		this.oRouter.attachRouteMatched(function(oEvent) {
 			if (oEvent.getParameter("name") === "S31") {
-				//only invoke if a pernr has been selected
-				if (self.oApplication.pernr) {
-					self.initializeView(oEvent.getParameter("arguments").context);
-				} else {
-					self.context = oEvent.getParameter("arguments").context;
-				}
-
 				var oModelexch = this.oApplication.getModel("S31modelexch");
 				if (oModelexch){
 					var dSelectedDate = new Date(oModelexch.getProperty("/selectedDates")[0]);
@@ -298,5 +291,28 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 				}
 			});
 
+	},
+
+	manualHelpChange: function(oEvent) {
+		if (this.favoriteSelected) {
+			this.byId("timeAssignment").setValue("");
+		}
+		oEvent.getSource().setValueStateText(
+			oEvent.getSource().getValue());
+		oEvent.getSource().setValue(
+			oEvent.getSource().getValue());
+		this.validateSaveBtnVisibility(oEvent);
+
+		//ADD STARD CHAHE 2016/04/28
+		/*if (oEvent.getSource().getProperty("name") === "LSTAR" && this.getView().byId("YYApprover") === null){
+			var sTaskKey = oEvent.getSource().getValue();
+			this.getView().getModel("WTAssign").read("/TaskInfoSet('" + sTaskKey +"')",
+					{
+						success: function(oData){
+							this.byId("YYApprover");
+						}
+					});
+		}*/
+		//ADD End   CHAHE 2016/04/28
 	}
 });
