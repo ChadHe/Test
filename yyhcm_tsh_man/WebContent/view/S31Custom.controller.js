@@ -44,69 +44,76 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 		var sDatePath = "/WorktimeAssignSet(datetime'" + sDateString + "')";
 		
 		oService.update(sDatePath,{
-			RangeStart: "PT" +
+			RangeStart: this.getView().byId("TR_TP1").getDateValue() == null?"PT00H00M00S":("PT" +
 						this.getView().byId("TR_TP1").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("TR_TP1").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("TR_TP1").getDateValue().getSeconds() +
-						"S",
-			RangeEnd:   "PT" +
+						"S"),
+			RangeEnd:   this.getView().byId("TR_TP2").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("TR_TP2").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("TR_TP2").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("TR_TP2").getDateValue().getSeconds() +
-						"S",
+						"S"),
 						
-			Rest1Start: "PT" +
+			Rest1Start: this.getView().byId("REST1_TP1").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST1_TP1").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST1_TP1").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST1_TP1").getDateValue().getSeconds() +
-						"S",
-			Rest1End:   "PT" +
+						"S"),
+			Rest1End:   this.getView().byId("REST1_TP2").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST1_TP2").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST1_TP2").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST1_TP2").getDateValue().getSeconds() +
-						"S",
-			Rest1Total: this.getView().byId("REST1_TL").getValue(),
+						"S"),
+			Rest1Total: this.getView().byId("REST1_TL").getValue() == ""?"0":this.getView().byId("REST1_TL").getValue(),
 
-			Rest2Start: "PT" +
+			Rest2Start: this.getView().byId("REST2_TP1").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST2_TP1").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST2_TP1").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST2_TP1").getDateValue().getSeconds() +
-						"S",
-			Rest2End:   "PT" +
+						"S"),
+			Rest2End:   this.getView().byId("REST2_TP2").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST2_TP2").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST2_TP2").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST2_TP2").getDateValue().getSeconds() +
-						"S",
-			Rest2Total: this.getView().byId("REST2_TL").getValue(),
+						"S"),
+			Rest2Total: this.getView().byId("REST2_TL").getValue() == ""?"0":this.getView().byId("REST2_TL").getValue(),
 
-			Rest3Start: "PT" +
+			Rest3Start: this.getView().byId("REST3_TP1").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST3_TP1").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST3_TP1").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST3_TP1").getDateValue().getSeconds() +
-						"S",
-			Rest3End:   "PT" +
+						"S"),
+			Rest3End:   this.getView().byId("REST3_TP1").getDateValue() == null?"PT00H00M00S":(
+						"PT" +
 						this.getView().byId("REST3_TP2").getDateValue().getHours() +
 						"H" +
 						this.getView().byId("REST3_TP2").getDateValue().getMinutes() +
 						"M" +
 						this.getView().byId("REST3_TP2").getDateValue().getSeconds() +
-						"S",
-			Rest3Total: this.getView().byId("REST3_TL").getValue(),
-			OTReason: this.getView().byId("OTREASON").getValue()
+						"S"),
+			Rest3Total: this.getView().byId("REST3_TL").getValue() == ""?"0":this.getView().byId("REST3_TL").getValue(),
+			OTReason: 	this.getView().byId("OTREASON").getValue()
 		},{	
 			success: function(){},
 			error: function(){

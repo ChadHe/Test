@@ -243,8 +243,8 @@
 											<sap.ui.layout.form:fields>
 													<Select>
 														<sap.ui.core:Item key="EN" text="English" />
-														<sap.ui.core:Item key="JP" text="日本語" />
-														<sap.ui.core:Item key="ZH" text="中文" />
+														<sap.ui.core:Item key="JP" text="Japanese" />
+														<sap.ui.core:Item key="ZH" text="Chinese" />
 													</Select>
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>
