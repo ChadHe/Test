@@ -1,5 +1,5 @@
 <sap.ui.core:View controllerName="hcm.mytimesheet.view.S31" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form"
-	xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.me="sap.me" xmlns:sap.ui.core="sap.ui.core">
+	xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.me="sap.me" xmlns:sap.ui.core="sap.ui.core" xmlns:u="sap.ui.unified">
 	<Page id="page" title="{i18n>MANUAL_INPUT_EDIT}" showNavButton="true" enableScrolling="true" navButtonPress="onNavButton">
 		<content>
 			<sap.me:Calendar id="weeklyCalendar" singleRow="true" weeksPerRow="2" design="Approval" enableMultiselection="true"
@@ -228,7 +228,6 @@
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>
 										
-										
 										<sap.ui.layout.form:FormElement>
 											<sap.ui.layout.form:layoutData>
 												<sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
@@ -246,6 +245,31 @@
 														<sap.ui.core:Item key="JP" text="Japanese" />
 														<sap.ui.core:Item key="ZH" text="Chinese" />
 													</Select>
+											</sap.ui.layout.form:fields>
+										</sap.ui.layout.form:FormElement>
+										
+										<sap.ui.layout.form:FormElement>
+											<sap.ui.layout.form:layoutData>
+												<sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+											</sap.ui.layout.form:layoutData>
+											<sap.ui.layout.form:label>
+												<Label class="sapUiSmallMarginTop" text="Upload">
+													<layoutData>
+														<sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</sap.ui.layout.form:label>
+											<sap.ui.layout.form:fields>
+													<u:FileUploader
+														id="fileUploader"
+														name="myFileUpload"
+														uploadUrl="proxy/sap/opu/odata/sap/yycats_srv/WorktimeAssignSet(datetime'2016-05-11T00:00:00')"
+														width="400px"
+														tooltip="Upload your file to the local server"
+														uploadComplete="handleUploadComplete"/>
+													<Button
+														text="Upload File"
+														press="handleUploadPress"/>
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>
 									</sap.ui.layout.form:FormContainer>
