@@ -30,6 +30,99 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 			}
 		}, this);
 	},
+
+	onDone: function() {
+		//ADD STARD CHAHE 2016/04/28
+		var oFirstDate = new Date();
+		oFirstDate.setDate(1);
+		oFirstDate.setHours(0);
+		oFirstDate.setMinutes(0);
+		oFirstDate.setSeconds(0);
+		oFirstDate.setMilliseconds(0);
+		var aSelectedDates = this.getView().byId("weeklyCalendar").getSelectedDates();
+		aSelectedDates.sort(function(a,b){
+			var oDateA = new Date(a);
+			var oDateB = new Date(b);
+			if (oDateA.getFullYear() !== oDateB.getFullYear()){
+				return oDateA.getFullYear() - oDateB.getFullYear();
+			} else if (oDateA.getMonth() !== oDateB.getMonth()) {
+				return oDateA.getMonth() - oDateB.getMonth();
+			} else {
+				return oDateA.getDate() - oDateB.getDate();
+			}
+		});
+		var oSelectedDate = new Date(aSelectedDates[0]);
+		oSelectedDate.setHours(0);
+		oSelectedDate.setMinutes(0);
+		oSelectedDate.setSeconds(0);
+		oSelectedDate.setMilliseconds(0);
+		
+		if (oSelectedDate < oFirstDate){
+			sap.m.MessageToast.show("You can't save. Because the date is cutoff.");
+			return;
+		}
+		//ADD END   CHAHE 2016/04/28
+		
+		// clean in-line error message for the entry
+		this.entry.showError = false;
+		this.entry.error = "";
+
+		this.resetMainAndChildItems();
+		var mainItemFound = true;
+		this.entry.notes = this.byId("S31TextArea").getValue();
+
+		mainItemFound = false;
+		// logic fetching data directly from input fields
+		var inputList = this.byId("manualAccountingInfos")
+			.getFormElements();
+		var value;
+		for (var j = 0; j < inputList.length; j++) {
+			var key = inputList[j].getFields()[0].getName();
+			//var value = inputList[j].getFields()[0].getValue() &&
+			// inputList[j].getFields()[0].getValueStateText();
+			if (inputList[j].getFields()[0].getValue().split('').indexOf('(') !== -1) {
+				value = inputList[j].getFields()[0].getValueStateText();
+			} else {
+				value = inputList[j].getFields()[0].getValue();
+			}
+			if (!value) {
+				value = inputList[j].getFields()[0]
+					.getValue();
+			}
+			if (value) {
+				if (!mainItemFound) {
+					this.entry.mainItem = key;
+					this.entry.mainName = key;
+					this.entry.mainCode = value;
+					mainItemFound = true;
+				} else {
+					if (!this.entry.childItems) {
+						this.initializeChildItems();
+						this.childItemsInitialized = true;
+					}
+					this.entry.childItems.push(key);
+					this.entry.childNames.push(key);
+					this.entry.childCodes.push(value);
+				}
+			}
+		}
+
+		if ("childItems" in this.entry) {
+			if (this.entry.childItems.length > 1) {
+				this.entry.subItems = this.entry.childItems
+					.join(", ");
+			} else if (this.entry.childItems.length === 1) {
+				this.entry.subItems = this.entry.childItems[0];
+			}
+		}
+
+		// Do something only if a mainItem exist.
+		if (mainItemFound || this.worklistItemSelected) {
+			this.onSubmit();
+		} else {
+			this.initializeChildItems();
+		}
+	},
 	
 	saveWorkAssign: function(){
 		var oService = this.getView().getModel("WTAssign");
@@ -322,26 +415,13 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 		}*/
 		//ADD End   CHAHE 2016/04/28
 	},
-	
-	handleUploadComplete: function(oEvent) {
-		var sResponse = oEvent.getParameter("response");
-		if (sResponse) {
-			var sMsg = "";
-			var m = /^\[(\d\d\d)\]:(.*)$/.exec(sResponse);
-			if (m[1] == "200") {
-				sMsg = "Return Code: " + m[1] + "\n" + m[2], "SUCCESS", "Upload Success";
-				oEvent.getSource().setValue("");
-			} else {
-				sMsg = "Return Code: " + m[1] + "\n" + m[2], "ERROR", "Upload Error";
-			}
-
-			MessageToast.show(sMsg);
-		}
-	},
 
 	handleUploadPress: function(oEvent) {
-		var oFileUploader = this.getView().byId("fileUploader");
-//		oFileUploader.setProperty("uploadUrl", this.getView().getModel("WTAssign").sServiceUrl + "/WorktimeAssignSet(datetime'2016-05-11T00:00:00')");
-		oFileUploader.upload();
+		var reader = new FileReader();
+		var file = oEvent.getParameter("files")[0];
+		reader.readAsText(file);
+		reader.onloadend = function(){
+			sap.m.MessageBox.information(reader.result);
+		}
 	}
 });

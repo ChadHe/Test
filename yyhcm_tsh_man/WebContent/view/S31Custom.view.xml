@@ -263,12 +263,12 @@
 													<u:FileUploader
 														id="fileUploader"
 														name="myFileUpload"
-														uploadUrl="proxy/sap/opu/odata/sap/yycats_srv/WorktimeAssignSet(datetime'2016-05-11T00:00:00')"
-														width="400px"
 														tooltip="Upload your file to the local server"
+														change="handleUploadPress"
 														uploadComplete="handleUploadComplete"/>
 													<Button
 														text="Upload File"
+														visible="false"
 														press="handleUploadPress"/>
 											</sap.ui.layout.form:fields>
 										</sap.ui.layout.form:FormElement>
