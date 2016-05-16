@@ -415,13 +415,47 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 		}*/
 		//ADD End   CHAHE 2016/04/28
 	},
+	handleUploadComplete: function(oEvent) {
+		var sResponse = oEvent.getParameter("response");
+		if (sResponse) {
+			var sMsg = "";
+			var m = /^\[(\d\d\d)\]:(.*)$/.exec(sResponse);
+			if (m[1] == "200") {
+				sMsg = "Return Code: " + m[1] + "\n" + m[2], "SUCCESS", "Upload Success";
+				oEvent.getSource().setValue("");
+			} else {
+				sMsg = "Return Code: " + m[1] + "\n" + m[2], "ERROR", "Upload Error";
+			}
 
+			MessageToast.show(sMsg);
+		}
+	},
+	
 	handleUploadPress: function(oEvent) {
+		var that = this;
 		var reader = new FileReader();
 		var file = oEvent.getParameter("files")[0];
 		reader.readAsText(file);
 		reader.onloadend = function(){
-			sap.m.MessageBox.information(reader.result);
+//			sap.m.MessageBox.information(reader.result);
+			that.getView().getModel("WTAssign").create(
+					"/UploadTaskInfoSet",
+					reader.result,
+					{
+						success: function (oData){
+							sap.m.MessageBox.information("Upload Success!!!");
+						}
+					}
+					);
 		}
 	}
+
+	/*handleUploadPress: function(oEvent) {
+		var oModel = this.getView().getModel("WTAssign");
+		var oFileUploader = this.getView().byId("fileUploader");
+//		oFileUploader.setProperty("uploadUrl", this.getView().getModel("WTAssign").sServiceUrl + "/WorktimeAssignSet(datetime'2016-05-11T00:00:00')");
+		var oParam = new sap.ui.unified.FileUploaderParameter({name: "x-csrf-token", value: oModel.getSecurityToken()});
+		oFileUploader.addHeaderParameter(oParam);
+		oFileUploader.upload();
+	}*/
 });
