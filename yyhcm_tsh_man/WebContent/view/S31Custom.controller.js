@@ -433,20 +433,26 @@ sap.ui.controller("hcm.mytimesheet.yyhcm_tsh_man.view.S31Custom", {
 	
 	handleUploadPress: function(oEvent) {
 		var that = this;
+		var oModel = this.getView().getModel("WTAssign");
 		var reader = new FileReader();
 		var file = oEvent.getParameter("files")[0];
 		reader.readAsText(file);
 		reader.onloadend = function(){
-//			sap.m.MessageBox.information(reader.result);
-			that.getView().getModel("WTAssign").create(
-					"/UploadTaskInfoSet",
-					reader.result,
-					{
-						success: function (oData){
-							sap.m.MessageBox.information("Upload Success!!!");
-						}
-					}
-					);
+			var oHeader = {
+				"x-csrf-token": oModel.getSecurityToken()
+			}
+			jQuery.ajax({
+				type: "POST",
+				url: that.getView().getModel("WTAssign").sServiceUrl + "/UploadTaskInfoSet",
+				headers: oHeader,
+				contentType: file.type,
+				data: file,
+				processData: false, 
+                cache: false,    
+                success: function(data, textStatus, XMLHttpRequest) {
+                	sap.m.MessageBox.information("Upload Success!!!");
+                }
+			});
 		}
 	}
 
