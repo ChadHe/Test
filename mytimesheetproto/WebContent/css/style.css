@@ -1,0 +1,24 @@
+/* Enter your custom styles here */
+.sapUxAPObjectPageHeaderIdentifier {
+    background: #ffffff !important;
+}
+
+.sapUxAPObjectPageHeaderContentDesign-Light {
+    background: #ffffff !important;
+}
+
+.sapUiFormM .sapUiFormContainerTitle > .sapUiFormTitle {
+    height: 0rem !important;
+}
+
+.sapUiFormResGrid > div {
+    padding: 0rem 0.75rem !important;
+}
+
+.sapUiHLayoutChildWrapper {
+    vertical-align: bottom !important;
+}
+
+.sapUxAPObjectPageHeaderContent .sapUxAPObjectPageHeaderContentItem {
+    line-height: 4rem !important;
+}

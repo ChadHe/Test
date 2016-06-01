@@ -1,0 +1,82 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="mytimesheetproto.controller.S1">
+	<App>
+		<pages>
+			<Page title="{i18n>searchTitle}">
+				<content>
+					
+				<SearchField width="100%" placeholder="Employee No. or Org. Unit  or Name" id="__field0"/>
+					
+				<Table noDataText="Drop column list items here and columns in the area above" id="__table0">
+					
+				    <items>
+					
+				        <ColumnListItem counter="0" id="__item0">
+					
+				            <cells>
+					
+				                <Text text="Row 1 Cell 1" maxLines="0" id="__text5"/>
+					
+				                <Text text="Row 1 Cell 2" maxLines="0" id="__text6"/>
+					
+				                <Text text="Row 1 Cell 3" maxLines="0" id="__text7"/></cells>
+					
+				        </ColumnListItem>
+					
+				        <ColumnListItem counter="0" id="__item1">
+					
+				            <cells>
+					
+				                <Text text="Row 2 Cell 1" maxLines="0" id="__text8"/>
+					
+				                <Text text="Row 2 Cell 2" maxLines="0" id="__text9"/>
+					
+				                <Text text="Row 2 Cell 3" maxLines="0" id="__text10"/></cells>
+					
+				        </ColumnListItem></items>
+					
+				    <columns>
+					
+				        <Column id="__column0">
+					
+				            <header>
+					
+				                <Label text="Header 1" id="__label0"/>
+					
+				            </header>
+					
+				        </Column>
+					
+				        <Column id="__column1">
+					
+				            <header>
+					
+				                <Label text="Header 2" id="__label1"/>
+					
+				            </header>
+					
+				        </Column>
+					
+				        <Column id="__column2">
+					
+				            <header>
+					
+				                <Label text="Header 3" id="__label2"/>
+					
+				            </header>
+					
+				        </Column></columns></Table>
+					
+				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer />
+							<Button text="OK"></Button>
+							<Button text="Close"></Button>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
