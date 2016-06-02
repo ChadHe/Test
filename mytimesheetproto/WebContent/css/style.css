@@ -22,3 +22,18 @@
 .sapUxAPObjectPageHeaderContent .sapUxAPObjectPageHeaderContentItem {
     line-height: 4rem !important;
 }
+
+/*OverlapCalendar size*/
+.sapMeOverlapCalendarRow{
+	height: 10px !important;
+}
+
+.sapMeOverlapCalendarDay{
+	height: 25px !important;
+    padding: 0 0 !important;
+    vertical-align: bottom !important;
+}
+
+.sapMeOverlapCalendarNameLbl {
+    font-size: .725rem !important;
+}

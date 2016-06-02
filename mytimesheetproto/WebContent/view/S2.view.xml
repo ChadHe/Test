@@ -1,11 +1,11 @@
-<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:me="sap.me"
 	xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
 	controllerName="mytimesheetproto.controller.S2" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
 			<Page title="{i18n>timeSheet}" showNavButton="true">
 				<content>
-					<uxap:ObjectPageLayout enableLazyLoading="false">
+					<uxap:ObjectPageLayout enableLazyLoading="false" height="40%">
 						<uxap:headerTitle>
 							<uxap:ObjectPageHeader objectTitle="山田花子">
 								<uxap:actions>
@@ -60,7 +60,16 @@
 								</layout:HorizontalLayout>
 							</layout:VerticalLayout>
 						</uxap:headerContent>
+						<uxap:sections>
+							
+						</uxap:sections>
 					</uxap:ObjectPageLayout>
+					
+					<ScrollContainer id="calendarScrollContainer" width="100%">
+						<layout:VerticalLayout width="100%">
+							<me:OverlapCalendar id="id_calendar1" weeksPerRow="2" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
+						</layout:VerticalLayout>
+					</ScrollContainer>
 				</content>
 			</Page>
 		</pages>

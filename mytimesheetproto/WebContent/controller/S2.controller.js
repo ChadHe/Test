@@ -5,31 +5,72 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("mytimesheetproto.controller.S2", {
-		//	onInit: function() {
-		//
-		//	},
+		onInit: function() {
+			for (var i = 1; i <= 24; i++){
+				if (i % 6 === 0) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "1970-01-01",
+							endDay: "1970-01-01",
+							row: i,
+							type: "06",
+							name: i + ":00"
+						})
+				); }
+				else {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "1970-01-01",
+							endDay: "1970-01-01",
+							row: i,
+							type: "06",
+							name: "|"
+						})
+					);
+				}
+				
+				if (i < 8) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-03",
+							endDay: "2016-06-03",
+							row: i,
+							type: "01"
+						})
+				); }
+				
+				if (i >= 8 && i<=18) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-03",
+							endDay: "2016-06-03",
+							row: i,
+							type: "06"
+						})
+				); }
+				
+				if (i > 18) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-03",
+							endDay: "2016-06-03",
+							row: i,
+							type: "07"
+						})
+				); }
+			}
+			
+		},
 		
 		searchEmployee: function (oEvent) {
 		    if (! this._oDialog) {
-		        this._oDialog = sap.ui.xmlfragment("sap.m.sample.SelectDialog.Dialog", this);
-		        this._oDialog.setModel(this.getView().getModel());
+		        this._oDialog = sap.ui.xmlfragment("mytimesheetproto.view.Search", this);
+		        this._oDialog.setModel(this.getView().getModel("i18n"), "i18n");
 		      }
-
-		      // Multi-select if required
-		      var bMultiSelect = !!oEvent.getSource().data("multi");
-		      this._oDialog.setMultiSelect(bMultiSelect);
-
-		      // Remember selections if required
-		      var bRemember = !!oEvent.getSource().data("remember");
-		      this._oDialog.setRememberSelections(bRemember);
-
-		      // clear the old search filter
-		      this._oDialog.getBinding("items").filter([]);
-
-		      // toggle compact style
-		      jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
-		      this._oDialog.open();
-		    }
+		    
+		    this._oDialog._oSearchField.setProperty("placeholder","氏名・組織ユニット・従業員番号を入力");
+		    this._oDialog.open();
+		}
 
 	});
 
