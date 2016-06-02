@@ -1,0 +1,61 @@
+ <core:FragmentDefinition
+ 	xmlns="sap.m"
+ 	xmlns:core="sap.ui.core">
+ 	<TableSelectDialog
+ 		noDataText="No Records Found"
+ 		contentHeight="50%"
+ 		title="{i18n>searchTitle}">
+ 		<columns>
+ 			<Column width="12em">
+ 				<header>
+ 					<Text text="{i18n>EmpName}" />
+ 				</header>
+ 			</Column>
+ 			<Column
+ 				minScreenWidth="Tablet"
+ 				demandPopin="true" >
+ 				<header>
+ 					<Text text="{i18n>OrgUnit}" />
+ 				</header>
+ 			</Column>
+ 			<Column
+ 				minScreenWidth="Tablet"
+ 				demandPopin="true"
+ 				hAlign="Right">
+ 				<header>
+ 					<Text text="{i18n>EmpNo}" />
+ 				</header>
+ 			</Column>
+ 		</columns>
+ 		<items>
+	 		<ColumnListItem>
+	 			<cells>
+	 				<Text text="{i18n>Data_Name1}" />
+	 				<Text text="{i18n>Data_OrgUnit}" />
+	 				<Text text="90001001" />
+	 			</cells>
+	 		</ColumnListItem>
+	 		<ColumnListItem>
+	 			<cells>
+	 				<Text text="{i18n>Data_Name2}" />
+	 				<Text text="{i18n>Data_OrgUnit}" />
+	 				<Text text="90001002" />
+	 			</cells>
+	 		</ColumnListItem>
+	 		<ColumnListItem>
+	 			<cells>
+	 				<Text text="{i18n>Data_Name3}" />
+	 				<Text text="{i18n>Data_OrgUnit}" />
+	 				<Text text="90001003" />
+	 			</cells>
+	 		</ColumnListItem>
+	 		<ColumnListItem>
+	 			<cells>
+	 				<Text text="{i18n>Data_Name4}" />
+	 				<Text text="{i18n>Data_OrgUnit}" />
+	 				<Text text="90001004" />
+	 			</cells>
+	 		</ColumnListItem>
+	 	</items>
+ 	</TableSelectDialog>
+ </core:FragmentDefinition>
