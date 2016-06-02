@@ -6,8 +6,7 @@
 		<pages>
 			<Page title="{i18n>timeSheet}" showNavButton="true">
 				<content>
-					<uxap:ObjectPageLayout enableLazyLoading="false"
-						height="37%">
+					<uxap:ObjectPageLayout enableLazyLoading="false">
 						<uxap:headerTitle>
 							<uxap:ObjectPageHeader objectTitle="{i18n>Data_Name1}">
 								<uxap:actions>
@@ -20,17 +19,18 @@
 						<uxap:headerContent>
 							<layout:VerticalLayout>
 								<layout:HorizontalLayout>
-									<layout:VerticalLayout width="10rem">
-										<Label text="90001001" />
-										<Label text="{i18n>Data_OrgUnit}" />
-									</layout:VerticalLayout>
-
-									<form:SimpleForm minWidth="2048" width="60rem"
-										maxContainerCols="3" editable="false" layout="ResponsiveGridLayout"
-										labelSpanL="5" labelSpanM="5" emptySpanL="3" emptySpanM="0"
-										columnsL="3" columnsM="3">
+									<form:SimpleForm minWidth="1024" width="70rem"
+										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
+										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
+										columnsL="4" columnsM="1">
 										<form:content>
-											<core:Title visible="false" />
+											<core:Title />
+											<Label text="{i18n>EmpNo}" />
+											<Text text="90001001" />
+											<Label text="{i18n>OrgUnit}" />
+											<Text text="{i18n>Data_OrgUnit}" />
+
+											<core:Title />
 											<Label text="{i18n>Data_Form1}" />
 											<Text text="99:99" />
 											<Label text="{i18n>Data_Form2}" />
@@ -47,21 +47,42 @@
 									</form:SimpleForm>
 								</layout:HorizontalLayout>
 								<layout:HorizontalLayout>
-									<Label text="{i18n>startDate}" />
-									<DateTimeInput id="StartDate" type="Date"
-										change="mytimesheetproto.util.Formatter.setEndDate" />
+									<form:SimpleForm minWidth="1024" width="70rem"
+										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
+										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
+										columnsL="4" columnsM="1">
+										<form:content>
+											<core:Title />
+											<Label text="{i18n>startDate}" />
+											<DateTimeInput id="StartDate" type="Date"
+												change="mytimesheetproto.util.Formatter.setEndDate" />
 
-									<Label text="{i18n>endDate}" />
-									<DateTimeInput id="EndDate" type="Date" enabled="false" />
+											<core:Title />
+											<Label text="{i18n>endDate}" />
+											<DateTimeInput id="EndDate" type="Date"
+												enabled="false" />
 
-									<RadioButtonGroup id="RBG" columns="2"
-										select="mytimesheetproto.util.Formatter.setEndDateR">
-										<buttons>
-											<RadioButton id="RB3-1" text="{i18n>weekDis}" />
-											<RadioButton id="RB3-2" text="{i18n>monthDis}" />
-										</buttons>
-									</RadioButtonGroup>
+											<core:Title />
+											<RadioButtonGroup id="RBG" columns="3"
+												select="mytimesheetproto.util.Formatter.setEndDateR">
+												<buttons>
+													<RadioButton id="RB3-1" text="{i18n>weekDis}" />
+													<RadioButton id="RB3-2" text="{i18n>monthDis}" />
+												</buttons>
+											</RadioButtonGroup>
+										</form:content>
+									</form:SimpleForm>
 								</layout:HorizontalLayout>
+					<ScrollContainer id="calendarScrollContainer"
+						width="100%">
+						<layout:VerticalLayout width="100%">
+							<me:OverlapCalendar id="id_calendar1"
+								weeksPerRow="1" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
+							<me:CalendarLegend id="overlapCalendarLegend"
+								expanded="true" width="100%" legendForType01="Holiday"
+								legendForType06="Work" legendForType07="Overtime"></me:CalendarLegend>
+						</layout:VerticalLayout>
+					</ScrollContainer>
 							</layout:VerticalLayout>
 						</uxap:headerContent>
 						<uxap:sections>
@@ -69,16 +90,17 @@
 						</uxap:sections>
 					</uxap:ObjectPageLayout>
 
-					<ScrollContainer id="calendarScrollContainer"
-						width="100%">
-						<layout:VerticalLayout width="100%">
-							<me:OverlapCalendar id="id_calendar1"
-								weeksPerRow="2" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
-							<me:CalendarLegend id="overlapCalendarLegend"
-								expanded="true" width="100%" legendForType01="Holiday" legendForType06="Work" legendForType07="Overtime"></me:CalendarLegend>
-						</layout:VerticalLayout>
-					</ScrollContainer>
 				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer />
+							<Button text="{i18n>scheduleCopy}"></Button>
+							<Button text="{i18n>Submit}"></Button>
+							<Button text="{i18n>Draft}"></Button>
+						</content>
+					</Toolbar>
+				</footer>
 			</Page>
 		</pages>
 	</App>

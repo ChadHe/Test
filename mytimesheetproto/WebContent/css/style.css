@@ -11,29 +11,42 @@
     height: 0rem !important;
 }
 
-.sapUiFormResGrid > div {
-    padding: 0rem 0.75rem !important;
-}
-
 .sapUiHLayoutChildWrapper {
     vertical-align: bottom !important;
 }
 
-.sapUxAPObjectPageHeaderContent .sapUxAPObjectPageHeaderContentItem {
-    line-height: 4rem !important;
+.sapUiFormResGridCont {
+    padding-bottom: 0rem !important;
+}
+
+.sapUiFormResGrid > div {
+    padding: 0rem 0.75rem !important;
 }
 
 /*OverlapCalendar size*/
 .sapMeOverlapCalendarRow{
-	height: 10px !important;
+	height: 9px !important;
 }
 
 .sapMeOverlapCalendarDay{
-	height: 25px !important;
-    padding: 0 0 !important;
-    vertical-align: bottom !important;
+	height: 10px !important;
+	padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    text-align
 }
 
+.sapUiBody {
+    font-size: 1.5rem !important;
+}
 .sapMeOverlapCalendarNameLbl {
     font-size: .725rem !important;
+}
+
+/* Detail Screen*/
+.sapUiSmallMargin {
+	margin: 2rem;
+}
+
+.sapUiSmallMargin {
+    margin: 1rem 12rem !important;
 }

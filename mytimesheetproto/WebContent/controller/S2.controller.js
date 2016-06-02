@@ -8,7 +8,7 @@ sap.ui.define([
 		onInit: function() {
 			for (var i = 1; i <= 24; i++){
 				//Set Name
-				if (i === 8 || i === 17 || i === 24) {
+				if (i === 8 || i === 24) {
 					this.byId("id_calendar1").addCalendarEvent(
 						new sap.me.OverlapCalendarEvent({
 							startDay: "1970-01-01",
@@ -26,6 +26,17 @@ sap.ui.define([
 							row: i,
 							type: "06",
 							name: "0:00"
+						})
+					);
+				}
+				else if (i === 17) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "1970-01-01",
+							endDay: "1970-01-01",
+							row: i,
+							type: "06",
+							name: "17:30"
 						})
 					);
 				}
@@ -95,24 +106,66 @@ sap.ui.define([
 				if (i>=8 && i<= 17) {
 					this.byId("id_calendar1").addCalendarEvent(
 						new sap.me.OverlapCalendarEvent({
-							startDay: "2016-06-18",
-							endDay: "2016-06-20",
-							row: i,
-							type: "01"
-						})
-				); }
-
-				if (i>=8 && i<= 17) {
-					this.byId("id_calendar1").addCalendarEvent(
-						new sap.me.OverlapCalendarEvent({
 							startDay: "2016-06-11",
 							endDay: "2016-06-12",
 							row: i,
 							type: "07"
 						})
 				); }
+
+				if (i>=16 && i<= 22) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-15",
+							endDay: "2016-06-15",
+							row: i,
+							type: "01"
+						})
+				); }
+
+
+				if (i>=26 && i<= 36) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-15",
+							endDay: "2016-06-15",
+							row: i,
+							type: "01"
+						})
+				); }
+
+
+				if (i>=8 && i<= 17) {
+					this.byId("id_calendar1").addCalendarEvent(
+						new sap.me.OverlapCalendarEvent({
+							startDay: "2016-06-18",
+							endDay: "2016-06-20",
+							row: i,
+							type: "01"
+						})
+				); }
 			}
 			
+			this.byId("id_calendar1").addEventDelegate({
+				onAfterRendering: function() {
+					//$("#" + that._tcObject.pernrCalendar.getId()).children(":first-child").hide();
+					var OpernrCalendar = $(".calendarVContainer").children();
+					$(OpernrCalendar).each(function(index, element) {
+						$(element).find(".sapMeOverlapCalendarRow").attr("section", index);
+					});
+					var days = $(".sapMeOverlapCalendarDay");
+					days.each(function(index,ele){
+						var targetSplits = ele.id.split("-");
+						var row = targetSplits[targetSplits.length - 2];
+						var column = targetSplits[targetSplits.length - 1];
+						
+						if (row == 4 && column == 5){
+							ele.appendChild(document.createTextNode("0:00~6:00"));
+						}
+						
+					});
+					} });
+
 		},
 		
 		searchEmployee: function (oEvent) {
@@ -121,7 +174,6 @@ sap.ui.define([
 		        this._oDialog.setModel(this.getView().getModel("i18n"), "i18n");
 		      }
 		    
-		    this._oDialog._oSearchField.setProperty("placeholder","氏名・組織ユニット・従業員番号を入力");
 		    this._oDialog.open();
 		}
 

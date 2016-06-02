@@ -36,6 +36,7 @@ mytimesheetproto.util.Formatter = {
 
 		this.byId("StartDate").setValue(oFormatter.format(aDates[0]));
 		this.byId("EndDate").setValue(oFormatter.format(aDates[1]));
+		this.byId("id_calendar1").setStartDate(aDates[0]);
 	},
 
 	setEndDateR : function(oParam) {
@@ -49,5 +50,12 @@ mytimesheetproto.util.Formatter = {
 
 		this.byId("StartDate").setValue(oFormatter.format(aDates[0]));
 		this.byId("EndDate").setValue(oFormatter.format(aDates[1]));
+		this.byId("id_calendar1").setStartDate(aDates[0]);
+		if (iIndex === 0){
+			this.byId("id_calendar1").setWeeksPerRow(1);
+		} else {
+			this.byId("id_calendar1").setWeeksPerRow(4);
+		}
+		
 	}
 }
