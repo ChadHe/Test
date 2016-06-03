@@ -17,9 +17,9 @@
 						</uxap:headerTitle>
 
 						<uxap:headerContent>
-							<layout:VerticalLayout>
-								<Panel expandable="true" expanded="true" headerText="{i18n>panelHeaderText}">
-									<form:SimpleForm minWidth="1024" width="70rem"
+							<layout:VerticalLayout width="100%">
+								<Panel expandable="true" expanded="true" width="100%" headerText="{i18n>panelHeaderText}">
+									<form:SimpleForm minWidth="1024"
 										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
 										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
 										columnsL="4" columnsM="1">
@@ -45,9 +45,7 @@
 											<Text text="99:99" />
 										</form:content>
 									</form:SimpleForm>
-								</Panel>
-								<layout:HorizontalLayout>
-									<form:SimpleForm minWidth="1024" width="70rem"
+									<form:SimpleForm minWidth="1024"
 										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
 										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
 										columnsL="4" columnsM="1">
@@ -72,7 +70,7 @@
 											</RadioButtonGroup>
 										</form:content>
 									</form:SimpleForm>
-								</layout:HorizontalLayout>
+								</Panel>
 								<ScrollContainer id="calendarScrollContainer" horizontal="false" width="100%">
 									<me:OverlapCalendar id="id_calendar1"
 										weeksPerRow="1" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
@@ -85,7 +83,7 @@
 					</uxap:ObjectPageLayout>
 				</content>
 				<footer>
-					<Toolbar id="footToolbar" enabled="false">
+					<Toolbar id="footToolbar">
 						<content>
 							<ToolbarSpacer />
 							<Button id="btn_1" text="{i18n>scheduleCopy}"></Button>
