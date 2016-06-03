@@ -53,8 +53,10 @@ mytimesheetproto.util.Formatter = {
 		this.byId("id_calendar1").setStartDate(aDates[0]);
 		if (iIndex === 0){
 			this.byId("id_calendar1").setWeeksPerRow(1);
+			$(".hideFooterButton").css("visibility","visible");
 		} else {
 			this.byId("id_calendar1").setWeeksPerRow(4);
+			$(".hideFooterButton").css("visibility","hidden");
 		}
 		
 	}

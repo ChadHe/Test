@@ -166,6 +166,9 @@ sap.ui.define([
 					});
 					} });
 
+			this.byId("btn_1").addStyleClass("hideFooterButton");
+			this.byId("btn_2").addStyleClass("hideFooterButton");
+			this.byId("btn_3").addStyleClass("hideFooterButton");
 		},
 		
 		searchEmployee: function (oEvent) {

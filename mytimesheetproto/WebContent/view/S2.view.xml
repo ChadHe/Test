@@ -18,7 +18,7 @@
 
 						<uxap:headerContent>
 							<layout:VerticalLayout>
-								<layout:HorizontalLayout>
+								<Panel expandable="true" expanded="true" headerText="{i18n>panelHeaderText}">
 									<form:SimpleForm minWidth="1024" width="70rem"
 										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
 										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
@@ -45,7 +45,7 @@
 											<Text text="99:99" />
 										</form:content>
 									</form:SimpleForm>
-								</layout:HorizontalLayout>
+								</Panel>
 								<layout:HorizontalLayout>
 									<form:SimpleForm minWidth="1024" width="70rem"
 										maxContainerCols="4" editable="false" layout="ResponsiveGridLayout"
@@ -73,31 +73,24 @@
 										</form:content>
 									</form:SimpleForm>
 								</layout:HorizontalLayout>
-					<ScrollContainer id="calendarScrollContainer"
-						width="100%">
-						<layout:VerticalLayout width="100%">
-							<me:OverlapCalendar id="id_calendar1"
-								weeksPerRow="1" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
-							<me:CalendarLegend id="overlapCalendarLegend"
-								expanded="true" width="100%" legendForType01="Holiday"
-								legendForType06="Work" legendForType07="Overtime"></me:CalendarLegend>
-						</layout:VerticalLayout>
-					</ScrollContainer>
+								<ScrollContainer id="calendarScrollContainer" horizontal="false" width="100%">
+									<me:OverlapCalendar id="id_calendar1"
+										weeksPerRow="1" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
+									<me:CalendarLegend id="overlapCalendarLegend"
+										expanded="true" width="100%" legendForType01="Holiday"
+										legendForType06="Work" legendForType07="Overtime"></me:CalendarLegend>
+								</ScrollContainer>
 							</layout:VerticalLayout>
 						</uxap:headerContent>
-						<uxap:sections>
-
-						</uxap:sections>
 					</uxap:ObjectPageLayout>
-
 				</content>
 				<footer>
-					<Toolbar>
+					<Toolbar id="footToolbar" enabled="false">
 						<content>
 							<ToolbarSpacer />
-							<Button text="{i18n>scheduleCopy}"></Button>
-							<Button text="{i18n>Submit}"></Button>
-							<Button text="{i18n>Draft}"></Button>
+							<Button id="btn_1" text="{i18n>scheduleCopy}"></Button>
+							<Button id="btn_2" text="{i18n>Submit}"></Button>
+							<Button id="btn_3" text="{i18n>Draft}"></Button>
 						</content>
 					</Toolbar>
 				</footer>

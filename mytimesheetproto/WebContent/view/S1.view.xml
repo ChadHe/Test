@@ -6,53 +6,62 @@
 			<Page title="{i18n>timeSheet}" showNavButton="true">
 				<content>
 					<VBox class="sapUiSmallMargin">
-					<f:SimpleForm id="SimpleFormDisplay480" minWidth="1024"
-						maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
-						title="{i18n>detailTitle}" labelSpanL="4" labelSpanM="4"
-						emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
-						<f:content>
-							<core:Title />
-							<Label text="{i18n>Date}" />
-							<DateTimeInput type="Date" />
-							<Label text="{i18n>Status}" />
-							<Input enable="false" />
-							<Label text="{i18n>Type}" />
-							<Select selectedKey="work">
-								<items>
-									<core:Item key="work" text="{i18n>typ_Work}" />
-									<core:Item key="rest" text="{i18n>typ_Rest}" />
-								</items>
-							</Select>
-							<Label text="{i18n>LeaveType}" />
-							<Select selectedKey="marry">
-								<items>
-									<core:Item key="marry" text="{i18n>typ_Marry}" />
-									<core:Item key="others" text="{i18n>typ_Others}" />
-								</items>
-							</Select>
-							<Label text="{i18n>StartTime}" />
-							<DateTimeInput type="Time" />
-							<Label text="{i18n>EndTime}" />
-							<DateTimeInput type="Time" />
+						<f:SimpleForm id="SimpleFormDisplay480" minWidth="1024"
+							maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+							title="{i18n>detailTitle}" labelSpanL="4" labelSpanM="4"
+							emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+							<f:content>
+								<core:Title />
+								<Label text="{i18n>Date}" />
+								<DateTimeInput type="Date" enabled="false" />
+								<Label text="{i18n>Status}"/>
+								<Input enable="false" enabled="false" />
+								<Label text="{i18n>Type}" />
+								<Select id="Select1" selectedKey="work" change="changeSelect">
+									<items>
+										<core:Item key="work" text="{i18n>typ_Work}" />
+										<core:Item key="srest" text="{i18n>typ_SRest}" />
+										<core:Item key="rest" text="{i18n>typ_Rest}" />
+									</items>
+								</Select>
+								<Label text="{i18n>LeaveType}" />
+								<Select id="Select2" selectedKey="Default" enabled="false">
+									<items>
+										<core:Item key="Default" />
+										<core:Item key="ConG" text="{i18n>typ_ConG}" />
+										<core:Item key="ConP" text="{i18n>typ_ConP}" />
+									</items>
+								</Select>
+								<Label text="{i18n>StartTime}" />
+								<DateTimeInput type="Time" />
+								<Label text="{i18n>EndTime}" />
+								<DateTimeInput type="Time" />
 
-							<core:Title/>
-							<Label text="{i18n>RestStart}" />
-							<DateTimeInput type="Time" />
-							<Label text="{i18n>RestEnd}" />
-							<DateTimeInput type="Time" />
-							<Label text="{i18n>OutStart}" />
-							<DateTimeInput type="Time" />
-							<Label text="{i18n>OutEnd}" />
-							<DateTimeInput type="Time" />
-							<Label text="{i18n>ExDate}" />
-							<DateTimeInput type="Date" enable="false" />
-						</f:content>
-					</f:SimpleForm>
+								<core:Title />
+								<Label text="{i18n>RestStart}" />
+								<DateTimeInput type="Time" />
+								<Label text="{i18n>RestEnd}" />
+								<DateTimeInput type="Time" />
+								<Label text="{i18n>OutStart}" />
+								<DateTimeInput type="Time" />
+								<Label text="{i18n>OutEnd}" />
+								<DateTimeInput type="Time" />
+								<Label text="{i18n>ExDate}" />
+								<DateTimeInput type="Date" />
+							</f:content>
+						</f:SimpleForm>
 					</VBox>
 				</content>
-				<footer> <Toolbar> <content> <ToolbarSpacer /> <Button text="{i18n>Submit}"></Button> 
-					<Button text="{i18n>Draft}"></Button> <Button text="{i18n>Delete}"></Button> 
-					</content> </Toolbar> </footer>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer />
+							<Button text="{i18n>Submit}"></Button>
+							<Button text="{i18n>Draft}"></Button>
+							<Button text="{i18n>Delete}"></Button>
+						</content>
+					</Toolbar>
+				</footer>
 			</Page>
 		</pages>
 	</App>
