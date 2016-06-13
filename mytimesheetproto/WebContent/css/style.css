@@ -25,19 +25,26 @@
 
 /*OverlapCalendar size*/
 .sapMeOverlapCalendarRow{
-	height: 9px !important;
+	height: 14px !important;
 }
 
 .sapMeOverlapCalendarDay{
-	height: 9px !important;
+	height: 14px !important;
 	padding-top: 0px !important;
     padding-bottom: 0px !important;
     border-bottom: 0px !important;
+    
+	border-bottom-color: black !important;
+	border-bottom-style: none !important;
+	//font-size: 0.86rem;
+	font-size: 14.85px;
 }
+
 
 .sapUiBody {
     font-size: 0.6rem !important;
 }
+
 .sapMeOverlapCalendarNameLbl {
     font-size: .725rem !important;
 }
@@ -49,4 +56,44 @@
 
 .sapUiSmallMargin {
     margin: 1rem 12rem !important;
+}
+.paddingBottom{
+	padding-bottom: 10px;
+}
+
+/*lengend color*/
+.sapMeOverlapCalendarType00{
+	background-color: #DEEBF7 !important;
+}
+.sapUIMeLegendColorForType00{
+	background-color: #DEEBF7 !important;
+}
+.sapMeOverlapCalendarType01{
+	background-color: #5B9BD5 !important;
+}
+.sapUIMeLegendColorForType01{
+	background-color: #5B9BD5 !important;
+}
+.sapMeOverlapCalendarType04{
+	background-color: #FFD966 !important;
+	background-image: none !important ;
+}
+.sapUIMeLegendColorForType04{
+	background-color: #FFD966 !important;
+	background-image: none !important ;
+}
+.sapMeOverlapCalendarType07{
+	background-color: #FBE5D6 !important;
+	background-image: none !important ;
+}
+.sapUIMeLegendColorForType07{
+	background-color: #FBE5D6 !important;
+	background-image: none !important ;
+}
+
+.sapMeOverlapCalendarTypeSelected00{
+	background-color: #F4B183 !important;
+}
+.sapUIMeLegendColorForSelected00{
+	background-color: #F4B183 !important;
 }

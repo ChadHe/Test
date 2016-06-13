@@ -11,7 +11,11 @@
 							<uxap:ObjectPageHeader objectTitle="{i18n>Data_Name1}">
 								<uxap:actions>
 									<uxap:ObjectPageHeaderActionButton
-										icon="sap-icon://customer" text="Other Person" press="searchEmployee" />
+										icon="sap-icon://employee-approvals" 
+										hideText = "false"  text="2" 
+										press="approveInfo" />
+									<uxap:ObjectPageHeaderActionButton
+										icon="sap-icon://customer" text="Other Person" press="searchEmployee" />										
 								</uxap:actions>
 							</uxap:ObjectPageHeader>
 						</uxap:headerTitle>
@@ -26,23 +30,28 @@
 										<form:content>
 											<core:Title />
 											<Label text="{i18n>EmpNo}" />
-											<Text text="90001001" />
+											<Text text="90000001" />
 											<Label text="{i18n>OrgUnit}" />
 											<Text text="{i18n>Data_OrgUnit}" />
+											<Label text="{i18n>Data_Form7}" />
+											<Text text="{i18n>Data_Form71}" />
 
 											<core:Title />
 											<Label text="{i18n>Data_Form1}" />
-											<Text text="99:99" />
+											<Text text="200.00" />
 											<Label text="{i18n>Data_Form2}" />
-											<Text text="99:99" />
+											<Text text="10.00" />
 											<core:Title />
+											
 											<Label text="{i18n>Data_Form3}" />
-											<Text text="99:99" />
+											<Text text="300.00" />
 											<Label text="{i18n>Data_Form4}" />
-											<Text text="99:99" />
+											<Text text="40.00" />
 											<core:Title />
 											<Label text="{i18n>Data_Form5}" />
-											<Text text="99:99" />
+											<Text text="{i18n>Data_Form51}" />
+											<Label text="{i18n>Data_Form6}" />
+											<Text text="{i18n>Data_Form61}" />
 										</form:content>
 									</form:SimpleForm>
 									<form:SimpleForm minWidth="1024"
@@ -50,33 +59,41 @@
 										labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
 										columnsL="4" columnsM="1">
 										<form:content>
+											<!-- 
 											<core:Title />
 											<Label text="{i18n>startDate}" />
 											<DateTimeInput id="StartDate" type="Date"
 												change="mytimesheetproto.util.Formatter.setEndDate" />
-
 											<core:Title />
 											<Label text="{i18n>endDate}" />
 											<DateTimeInput id="EndDate" type="Date"
 												enabled="false" />
-
 											<core:Title />
-											<RadioButtonGroup id="RBG" columns="3"
+											 -->
+
+											<RadioButtonGroup id="RBG" columns="3" 
 												select="mytimesheetproto.util.Formatter.setEndDateR">
 												<buttons>
 													<RadioButton id="RB3-1" text="{i18n>weekDis}" />
 													<RadioButton id="RB3-2" text="{i18n>monthDis}" />
 												</buttons>
 											</RadioButtonGroup>
+									
 										</form:content>
 									</form:SimpleForm>
 								</Panel>
 								<ScrollContainer id="calendarScrollContainer" horizontal="false" width="100%">
-									<me:OverlapCalendar id="id_calendar1"
-										weeksPerRow="1" swipeToNavigate="false" startDate="2016-05-31T08:00:00"></me:OverlapCalendar>
+									<me:OverlapCalendar id="id_calendar1" changeDate="mytimesheetproto.util.Formatter.changeDate"
+										weeksPerRow="1" swipeToNavigate="false"></me:OverlapCalendar>
 									<me:CalendarLegend id="overlapCalendarLegend"
-										expanded="true" width="100%" legendForType01="Holiday"
-										legendForType06="Work" legendForType07="Overtime"></me:CalendarLegend>
+										expanded="true" width="100%" 
+										legendForType00="{i18n>Holiday}" 
+										legendForType01="{i18n>Holidayapv}"
+										legendForType06="{i18n>Work}" 
+										legendForType04="{i18n>Workapv}" 
+										legendForType07="{i18n>Overtime}" 
+										legendForSelected00="{i18n>Overtimeapv}" >
+									</me:CalendarLegend>			
 								</ScrollContainer>
 							</layout:VerticalLayout>
 						</uxap:headerContent>
@@ -86,7 +103,7 @@
 					<Toolbar id="footToolbar">
 						<content>
 							<ToolbarSpacer />
-							<Button id="btn_1" text="{i18n>scheduleCopy}"></Button>
+							<!--   <Button id="btn_1" text="{i18n>scheduleCopy}" press="scheduleCopy"></Button> -->
 							<Button id="btn_2" text="{i18n>Submit}"></Button>
 							<Button id="btn_3" text="{i18n>Draft}"></Button>
 						</content>

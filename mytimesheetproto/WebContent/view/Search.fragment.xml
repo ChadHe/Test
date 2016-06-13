@@ -4,7 +4,28 @@
  	<TableSelectDialog
  		noDataText="No Records Found"
  		contentHeight="50%"
+ 		search="handleSearch"
+		confirm="serachhandleClose"
+		cancel="serachhandleClose" 		
+		items="{
+			path : '/Persons',
+			sorter : {
+				path : 'Name',
+				descending : false
+			}
+		}"
  		title="{i18n>searchTitle}">
+ 		
+ 		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{Name}" />
+					<Text text="{Org}" />
+					<Text text="{No}" />
+				</cells>
+			</ColumnListItem> 		
+		</items>
+ 		
  		<columns>
  			<Column width="12em">
  				<header>
@@ -27,35 +48,5 @@
  				</header>
  			</Column>
  		</columns>
- 		<items>
-	 		<ColumnListItem>
-	 			<cells>
-	 				<Text text="{i18n>Data_Name1}" />
-	 				<Text text="{i18n>Data_OrgUnit}" />
-	 				<Text text="90001001" />
-	 			</cells>
-	 		</ColumnListItem>
-	 		<ColumnListItem>
-	 			<cells>
-	 				<Text text="{i18n>Data_Name2}" />
-	 				<Text text="{i18n>Data_OrgUnit}" />
-	 				<Text text="90001002" />
-	 			</cells>
-	 		</ColumnListItem>
-	 		<ColumnListItem>
-	 			<cells>
-	 				<Text text="{i18n>Data_Name3}" />
-	 				<Text text="{i18n>Data_OrgUnit}" />
-	 				<Text text="90001003" />
-	 			</cells>
-	 		</ColumnListItem>
-	 		<ColumnListItem>
-	 			<cells>
-	 				<Text text="{i18n>Data_Name4}" />
-	 				<Text text="{i18n>Data_OrgUnit}" />
-	 				<Text text="90001004" />
-	 			</cells>
-	 		</ColumnListItem>
-	 	</items>
  	</TableSelectDialog>
  </core:FragmentDefinition>

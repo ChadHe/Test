@@ -3,7 +3,7 @@
 	controllerName="mytimesheetproto.controller.S1">
 	<App>
 		<pages>
-			<Page title="{i18n>timeSheet}" showNavButton="true">
+			<Page title="{i18n>timeSheet}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
 					<VBox class="sapUiSmallMargin">
 						<f:SimpleForm id="SimpleFormDisplay480" minWidth="1024"
@@ -13,7 +13,10 @@
 							<f:content>
 								<core:Title />
 								<Label text="{i18n>Date}" />
-								<DateTimeInput type="Date" enabled="false" />
+								<DatePicker type="Date" enabled="false" 
+									value="{path:'/dateValue',type:'sap.ui.model.type.Date',formatOptions: { style: 'medium'}}"
+									
+									/>
 								<Label text="{i18n>Status}"/>
 								<Input enable="false" enabled="false" />
 								<Label text="{i18n>Type}" />
@@ -33,21 +36,60 @@
 									</items>
 								</Select>
 								<Label text="{i18n>StartTime}" />
-								<DateTimeInput type="Time" />
+								<Input
+								type = 'Time'
+								submit = 'handleCheckTime'
+								value="{
+									path: '/starttime',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'}
+									 }" />
 								<Label text="{i18n>EndTime}" />
-								<DateTimeInput type="Time" />
+								<Input 
+									type = 'Time'
+									submit = 'handleCheckTime'
+									value="{
+									path: '/endtime',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'} }" />
 
 								<core:Title />
 								<Label text="{i18n>RestStart}" />
-								<DateTimeInput type="Time" />
+								<Input 
+									type = 'Time'
+									submit = 'handleCheckTime'
+									value="{
+									path: '/restst',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'} }" />
 								<Label text="{i18n>RestEnd}" />
-								<DateTimeInput type="Time" />
+								<Input 
+									type = 'Time'
+									submit = 'handleCheckTime'
+									value="{
+									path: '/restet',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'} }" />
+									
 								<Label text="{i18n>OutStart}" />
-								<DateTimeInput type="Time" />
+								<Input 
+									type = 'Time'
+									submit = 'handleCheckTime'
+									value="{
+									path: '/outst',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'} }" />
 								<Label text="{i18n>OutEnd}" />
-								<DateTimeInput type="Time" />
+								<Input 
+									type = 'Time'
+									submit = 'handleCheckTime'
+									value="{
+									path: '/outet',
+									type: 'sap.ui.model.type.Time',
+									formatOptions: {pattern: 'HH:mm'} }" />
+									
 								<Label text="{i18n>ExDate}" />
-								<DateTimeInput type="Date" />
+								<DatePicker/>
 							</f:content>
 						</f:SimpleForm>
 					</VBox>
@@ -56,7 +98,7 @@
 					<Toolbar>
 						<content>
 							<ToolbarSpacer />
-							<Button text="{i18n>Submit}"></Button>
+							<Button text="{i18n>Submit}" press="onPress" ></Button>
 							<Button text="{i18n>Draft}"></Button>
 							<Button text="{i18n>Delete}"></Button>
 						</content>
